@@ -1,0 +1,255 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "image/upload"
+public_folder: "/image/upload"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    description: "Gérer le contenu des pages principales du site (Accueil, À Propos, etc.)."
+    files:
+      - file: "content/pages/home.md"
+        label: "Page d'accueil"
+        name: "home"
+        fields:
+          - {label: "Titre SEO", name: "seo_title", widget: "string"}
+          - {label: "Description SEO", name: "seo_description", widget: "text"}
+          - {label: "Mots-clés", name: "keywords", widget: "string"}
+          - label: "Section Héro"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Titre principal", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "text"}
+              - {label: "Texte du bouton CTA", name: "cta_button", widget: "string"}
+              - {label: "Texte du bouton d'appel", name: "call_button", widget: "string"}
+              - {label: "Vidéo de fond", name: "background_video", widget: "file", required: false}
+          - label: "Aperçu des Services"
+            name: "services_preview"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+          - label: "Section 'Pourquoi nous choisir'"
+            name: "why_us"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - label: "Statistiques"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - {label: "Titre", name: "title", widget: "string"}
+                  - {label: "Texte", name: "text", widget: "string"}
+          - label: "Section CTA (Appel à l'action)"
+            name: "cta_section"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - {label: "Texte du bouton CTA", name: "cta_button", widget: "string"}
+              - {label: "Texte du bouton d'appel", name: "call_button", widget: "string"}
+      - file: "content/pages/about.md"
+        label: "Page À Propos"
+        name: "about"
+        fields:
+          - {label: "Titre SEO", name: "seo_title", widget: "string"}
+          - {label: "Description SEO", name: "seo_description", widget: "text"}
+          - label: "En-tête de page"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - {label: "Image de fond", name: "background_image", widget: "image"}
+          - label: "Section Histoire"
+            name: "story"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - {label: "Paragraphe 1", name: "p1", widget: "text"}
+              - {label: "Paragraphe 2", name: "p2", widget: "text"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Mission & Vision"
+            name: "mission_vision"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Titre Mission", name: "mission_title", widget: "string"}
+              - {label: "Texte Mission", name: "mission_text", widget: "text"}
+              - {label: "Titre Vision", name: "vision_title", widget: "string"}
+              - {label: "Texte Vision", name: "vision_text", widget: "text"}
+          - label: "Valeurs"
+            name: "values"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - label: "Liste des valeurs"
+                name: "value_list"
+                widget: "list"
+                fields:
+                  - {label: "Titre", name: "title", widget: "string"}
+                  - {label: "Texte", name: "text", widget: "text"}
+          - label: "Équipe"
+            name: "team"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - label: "Membres de l'équipe"
+                name: "members"
+                widget: "list"
+                fields:
+                  - {label: "Nom", name: "name", widget: "string"}
+                  - {label: "Titre", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "string"}
+                  - {label: "Image", name: "image", widget: "image"}
+      - file: "content/pages/services.md"
+        label: "Page Services (Contenu général)"
+        name: "services_page"
+        fields:
+          - {label: "Titre SEO", name: "seo_title", widget: "string"}
+          - {label: "Description SEO", name: "seo_description", widget: "text"}
+          - label: "En-tête de page"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+          - label: "Processus"
+            name: "process"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - label: "Étapes"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - {label: "Titre", name: "title", widget: "string"}
+                  - {label: "Texte", name: "text", widget: "string"}
+      - file: "content/pages/contact.md"
+        label: "Page Contact (Contenu général)"
+        name: "contact_page"
+        fields:
+          - {label: "Titre SEO", name: "seo_title", widget: "string"}
+          - {label: "Description SEO", name: "seo_description", widget: "text"}
+          - label: "En-tête de page"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+          - label: "FAQ"
+            name: "faq"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
+              - label: "Questions"
+                name: "questions"
+                widget: "list"
+                fields:
+                  - {label: "Question", name: "q", widget: "string"}
+                  - {label: "Réponse", name: "a", widget: "text"}
+
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Description courte", name: "description", widget: "text"}
+      - {label: "Description complète", name: "body", widget: "markdown"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Icône (nom)", name: "icon", widget: "string"}
+      - {label: "Ordre d'affichage", name: "order", widget: "number"}
+      - {label: "Actif", name: "active", widget: "boolean", default: true}
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        fields:
+          - {label: "Titre SEO", name: "title", widget: "string"}
+          - {label: "Description SEO", name: "description", widget: "text"}
+
+  - name: "gallery"
+    label: "Galerie"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Catégorie", name: "category", widget: "select", options: ["Portes", "Fenêtres", "Façades", "Sur mesure", "Résidentiel", "Commercial"]}
+      - {label: "Date du projet", name: "project_date", widget: "date"}
+      - {label: "Client", name: "client", widget: "string", required: false}
+      - {label: "Lieu", name: "location", widget: "string", required: false}
+      - {label: "Ordre d'affichage", name: "order", widget: "number"}
+      - {label: "Actif", name: "active", widget: "boolean", default: true}
+
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Date de publication", name: "date", widget: "datetime"}
+      - {label: "Auteur", name: "author", widget: "string"}
+      - {label: "Description courte", name: "excerpt", widget: "text"}
+      - {label: "Image de couverture", name: "featured_image", widget: "image"}
+      - {label: "Catégorie", name: "category", widget: "select", options: ["Actualités", "Conseils", "Projets", "Tendances"]}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Contenu", name: "body", widget: "markdown"}
+      - {label: "Publié", name: "published", widget: "boolean", default: false}
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        fields:
+          - {label: "Titre SEO", name: "title", widget: "string"}
+          - {label: "Description SEO", name: "description", widget: "text"}
+          - {label: "Mots-clés", name: "keywords", widget: "string"}
+
+  - name: "settings"
+    label: "Paramètres"
+    files:
+      - file: "content/settings/general.md"
+        label: "Paramètres généraux"
+        name: "general"
+        fields:
+          - {label: "Nom du site", name: "site_name", widget: "string"}
+          - {label: "Description du site", name: "site_description", widget: "text"}
+          - {label: "URL du site", name: "site_url", widget: "string"}
+          - {label: "Logo", name: "logo", widget: "image"}
+          - {label: "Favicon", name: "favicon", widget: "image"}
+          - label: "Réseaux sociaux"
+            name: "social_media"
+            widget: "object"
+            fields:
+              - {label: "Facebook", name: "facebook", widget: "string", required: false}
+              - {label: "Instagram", name: "instagram", widget: "string", required: false}
+              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+              - {label: "Twitter", name: "twitter", widget: "string", required: false}
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Téléphone principal", name: "phone", widget: "string"}
+              - {label: "Email principal", name: "email", widget: "string"}
+              - {label: "Adresse", name: "address", widget: "text"}
+              - {label: "Horaires d'ouverture", name: "hours", widget: "string"}
+          - label: "SEO Global"
+            name: "global_seo"
+            widget: "object"
+            fields:
+              - {label: "Titre par défaut", name: "default_title", widget: "string"}
+              - {label: "Description par défaut", name: "default_description", widget: "text"}
+              - {label: "Mots-clés globaux", name: "global_keywords", widget: "string"}
+              - {label: "Image Open Graph par défaut", name: "og_image", widget: "image"}
